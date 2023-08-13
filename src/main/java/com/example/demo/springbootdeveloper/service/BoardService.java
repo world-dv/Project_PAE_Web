@@ -8,6 +8,7 @@ import com.example.demo.springbootdeveloper.repository.BoardRepository;
 import com.example.demo.springbootdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +19,16 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
+    private final UserRepository userRepository;
+
     public Board save(AddBoardRequest request) {
-        return boardRepository.save(request.toEntity());
+
+        User user = userRepository.findByNickname(request.getNickname());
+        if(user != null) {
+            return boardRepository.save(request.toEntity());
+        } else {
+            throw new IllegalArgumentException("not found " + request.getNickname());
+        }
     }
 
     public List<Board> findAll() {
