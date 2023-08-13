@@ -3,7 +3,9 @@ package com.example.demo.springbootdeveloper.service;
 import com.example.demo.springbootdeveloper.DTO.AddShareRequest;
 import com.example.demo.springbootdeveloper.DTO.UpdateShareRequest;
 import com.example.demo.springbootdeveloper.domain.Share;
+import com.example.demo.springbootdeveloper.domain.User;
 import com.example.demo.springbootdeveloper.repository.ShareRepository;
+import com.example.demo.springbootdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,8 +18,16 @@ public class ShareService {
 
     private final ShareRepository shareRepository;
 
+    private final UserRepository userRepository;
+
     public Share save(AddShareRequest request) {
-        return shareRepository.save(request.toEntity());
+
+        User user = userRepository.findByNickname(request.getNickname());
+        if(user != null) {
+            return shareRepository.save(request.toEntity());
+        } else {
+            throw new IllegalArgumentException("not found " + request.getNickname());
+        }
     }
 
     public List<Share> findAll() {
