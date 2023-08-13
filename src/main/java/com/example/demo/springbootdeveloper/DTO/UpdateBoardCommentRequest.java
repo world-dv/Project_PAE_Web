@@ -12,8 +12,6 @@ import java.sql.Timestamp;
 @Getter
 public class UpdateBoardCommentRequest {
 
-    private long share_id;
-    private String nickname;
     private String content;
     private Timestamp updated_at;
 }

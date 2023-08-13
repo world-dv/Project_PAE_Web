@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Getter
 public class AddBoardCommentRequest {
 
-    private long share_id;
+    private long boardId;
     private String nickname;
     private String content;
     private Date date;
@@ -23,7 +23,7 @@ public class AddBoardCommentRequest {
     public Board_comment toEntity() {
 
         return Board_comment.builder()
-                .share_id(share_id)
+                .boardId(boardId)
                 .nickname(nickname)
                 .content(content)
                 .date(date)

@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class ShareCommentService {
@@ -33,5 +35,11 @@ public class ShareCommentService {
         );
 
         return shareComment;
+    }
+
+    public List<Share_comment> findByShareId(long shareId) {
+        List<Share_comment> shareComments = shareCommentRepository.findByShareId(shareId);
+
+        return shareComments;
     }
 }

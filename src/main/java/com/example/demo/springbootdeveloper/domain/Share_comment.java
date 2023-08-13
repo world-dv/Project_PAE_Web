@@ -17,7 +17,7 @@ public class Share_comment {
     private Long id;
 
     @Column(name="ShareId")
-    private long share_id;
+    private long shareId;
 
     @Column(name="content", nullable = true)
     private String content;
@@ -44,8 +44,8 @@ public class Share_comment {
      */
 
     @Builder
-    public Share_comment(long share_id, String content, Date date, String nickname,Integer pid, Timestamp created_at, Timestamp updated_at) {
-        this.share_id = share_id;
+    public Share_comment(long shareId, String content, Date date, String nickname,Integer pid, Timestamp created_at, Timestamp updated_at) {
+        this.shareId = shareId;
         this.content = content;
         this.date = date;
         this.nickname = nickname;

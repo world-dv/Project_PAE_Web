@@ -13,7 +13,6 @@ import java.sql.Timestamp;
 public class UpdateShareCommentRequest {
 
     private String content;
-    private String nickname;
     private Integer pid;
     private Timestamp updated_at;
 }

@@ -37,12 +37,12 @@ public class Board_comment {
     private Board board;
      */
 
-    @Column(name="share_id", nullable = false)
-    private Long share_id;
+    @Column(name="boardId", nullable = false)
+    private Long boardId;
 
     @Builder
-    public Board_comment(long share_id, String nickname, String content, Date date, Timestamp created_at, Timestamp updated_at) {
-        this.share_id = share_id;
+    public Board_comment(long boardId, String nickname, String content, Date date, Timestamp created_at, Timestamp updated_at) {
+        this.boardId = boardId;
         this.nickname = nickname;
         this.content = content;
         this.date = date;
@@ -50,9 +50,7 @@ public class Board_comment {
         this.updated_at = updated_at;
     }
 
-    public void update(long share_id, String nickname, String content, Timestamp updated_at) {
-        this.share_id = share_id;
-        this.nickname = nickname;
+    public void update(String content, Timestamp updated_at) {
         this.content = content;
         this.updated_at = updated_at;
     }

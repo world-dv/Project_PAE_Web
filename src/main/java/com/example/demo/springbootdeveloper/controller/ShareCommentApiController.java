@@ -1,6 +1,7 @@
 package com.example.demo.springbootdeveloper.controller;
 
 import com.example.demo.springbootdeveloper.DTO.AddShareCommentRequest;
+import com.example.demo.springbootdeveloper.DTO.ShareCommentResponse;
 import com.example.demo.springbootdeveloper.DTO.UpdateShareCommentRequest;
 import com.example.demo.springbootdeveloper.domain.Share_comment;
 import com.example.demo.springbootdeveloper.service.ShareCommentService;
@@ -8,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Component
@@ -41,5 +44,16 @@ public class ShareCommentApiController {
 
         return ResponseEntity.ok()
                 .body(updatedShareComment);
+    }
+
+    @GetMapping("/api/shareComments/{id}")
+    public ResponseEntity<List<ShareCommentResponse>> findByShareId(@PathVariable long shareId) {
+        List<ShareCommentResponse> shareComments = shareCommentService.findByShareId(shareId)
+                .stream()
+                .map(ShareCommentResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(shareComments);
     }
 }

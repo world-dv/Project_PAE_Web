@@ -1,6 +1,7 @@
 package com.example.demo.springbootdeveloper.controller;
 
 import com.example.demo.springbootdeveloper.DTO.AddBoardCommentRequest;
+import com.example.demo.springbootdeveloper.DTO.BoardCommentResponse;
 import com.example.demo.springbootdeveloper.DTO.UpdateBoardCommentRequest;
 import com.example.demo.springbootdeveloper.domain.Board_comment;
 import com.example.demo.springbootdeveloper.service.BoardCommentService;
@@ -8,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Component
@@ -41,5 +44,16 @@ public class BoardCommentApiController {
 
         return ResponseEntity.ok()
                 .body(updatedBoardComment);
+    }
+
+    @GetMapping("/api/boardComments/{boardId}")
+    public ResponseEntity<List<BoardCommentResponse>> findBoardComment(@PathVariable long boardId) {
+        List<BoardCommentResponse> boardComments = boardCommentService.findByBoardId(boardId)
+                .stream()
+                .map(BoardCommentResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(boardComments);
     }
 }

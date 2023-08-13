@@ -30,12 +30,15 @@ public class BoardCommentService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
 
         boardComment.update(
-            request.getShare_id(),
-            request.getNickname(),
             request.getContent(),
             request.getUpdated_at()
         );
 
         return boardComment;
+    }
+
+    public List<Board_comment> findByBoardId(long boardId) {
+        List<Board_comment> boardComments = boardCommentRepository.findByBoardId(boardId);
+        return boardComments;
     }
 }
