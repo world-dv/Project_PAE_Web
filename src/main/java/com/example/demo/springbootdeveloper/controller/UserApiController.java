@@ -24,6 +24,19 @@ public class UserApiController {
                 .body(savedUser);
     }
 
+    @GetMapping("/api/login/{email}/{pw}")
+    public Boolean loginUser(@PathVariable String email, @PathVariable String pw) {
+        User user = userService.findByEmail(email);
+
+        if(user == null) {
+            throw new IllegalArgumentException("user not found");
+        } else if (!pw.equals(user.getPw())) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @GetMapping("/api/user/{id}")
     public ResponseEntity<UserResponse> findUser(@PathVariable long id) {
         User user = userService.findById(id);

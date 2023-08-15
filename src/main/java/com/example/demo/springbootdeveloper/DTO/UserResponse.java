@@ -10,6 +10,7 @@ public class UserResponse {
 
     private final String pw;
     private final String name;
+    private final String email;
     private final String address;
     private final String phone;
     private final Date date;
@@ -22,6 +23,7 @@ public class UserResponse {
     public UserResponse(User user) {
         this.pw = user.getPw();
         this.name = user.getName();
+        this.email = user.getEmail();
         this.address = user.getAddress();
         this.phone = user.getPhone();
         this.date = user.getDate();

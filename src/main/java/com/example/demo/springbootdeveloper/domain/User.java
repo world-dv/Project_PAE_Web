@@ -22,6 +22,9 @@ public class User {
     @Column(name="name", nullable = false)
     private String name;
 
+    @Column(name="email", nullable = false)
+    private String email;
+
     @Column(name="address", nullable = false)
     private String address;
 
@@ -53,9 +56,10 @@ public class User {
     private Timestamp updated_at;
 
     @Builder
-    public User(String pw, String name, String address, String phone, Date date, boolean helper, boolean gender, String nickname, float location_x, float location_y, Timestamp created_at, Timestamp updated_at) {
+    public User(String pw, String name, String email, String address, String phone, Date date, boolean helper, boolean gender, String nickname, float location_x, float location_y, Timestamp created_at, Timestamp updated_at) {
         this.pw = pw;
         this.name = name;
+        this.email = email;
         this.address = address;
         this.phone = phone;
         this.date = date;
@@ -68,9 +72,10 @@ public class User {
         this.updated_at = updated_at;
     }
 
-    public void update(String pw, String name, String address, String phone, Date date, boolean helper, boolean gender, String nickname, float location_x, float location_y, Timestamp updated_at) {
+    public void update(String pw, String name, String email, String address, String phone, Date date, boolean helper, boolean gender, String nickname, float location_x, float location_y, Timestamp updated_at) {
         this.pw = pw;
         this.name = name;
+        this.email = email;
         this.address = address;
         this.phone = phone;
         this.date = date;

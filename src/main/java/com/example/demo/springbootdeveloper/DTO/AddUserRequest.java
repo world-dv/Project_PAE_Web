@@ -15,6 +15,7 @@ public class AddUserRequest {
 
     private String pw;
     private String name;
+    private String email;
     private String address;
     private String phone;
     private Date date;
@@ -30,6 +31,7 @@ public class AddUserRequest {
         return User.builder()
                 .pw(pw)
                 .name(name)
+                .email(email)
                 .address(address)
                 .phone(phone)
                 .date(date)

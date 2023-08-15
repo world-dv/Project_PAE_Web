@@ -26,6 +26,10 @@ public class UserService {
                 .orElseThrow(() -> new IllegalArgumentException("not found + " + id));
     }
 
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     public void delete(long id) {
         userRepository.deleteById(id);
     }
@@ -37,6 +41,7 @@ public class UserService {
 
         user.update(request.getPw(),
                 request.getName(),
+                request.getEmail(),
                 request.getAddress(),
                 request.getPhone(),
                 request.getDate(),

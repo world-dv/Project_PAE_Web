@@ -14,6 +14,7 @@ public class UpdateUserRequest {
 
     private String pw;
     private String name;
+    private String email;
     private String address;
     private String phone;
     private Date date;
