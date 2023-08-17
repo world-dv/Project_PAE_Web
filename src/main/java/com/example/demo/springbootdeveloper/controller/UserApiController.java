@@ -83,4 +83,17 @@ public class UserApiController {
                     .body(updatedUser);
         }
     }
+
+    @PutMapping("/api/user/updatePw/{email}/{pw}")
+    public ResponseEntity<User> updateUserPwByEmailAndPw(@PathVariable String email, @PathVariable String pw, @RequestBody UpdateUserRequest request) {
+        User user = userService.findByEmail(email);
+
+        if(pw.equals(user.getPw())) {
+            User updatedUser = userService.update(user.getId(), request);
+            return ResponseEntity.ok()
+                    .body(updatedUser);
+        } else {
+            throw new IllegalArgumentException("not match pw");
+        }
+    }
 }
