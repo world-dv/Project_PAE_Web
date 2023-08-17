@@ -1,6 +1,7 @@
 package com.example.demo.springbootdeveloper.controller;
 
 import com.example.demo.springbootdeveloper.DTO.AddUserRequest;
+import com.example.demo.springbootdeveloper.DTO.UpdateUserPwRequest;
 import com.example.demo.springbootdeveloper.DTO.UpdateUserRequest;
 import com.example.demo.springbootdeveloper.DTO.UserResponse;
 import com.example.demo.springbootdeveloper.domain.User;
@@ -67,5 +68,19 @@ public class UserApiController {
 
         return ResponseEntity.ok()
                 .body(updatedUser);
+    }
+
+    @PutMapping("/api/user/email/{email}")
+    public ResponseEntity<User> updateUserPw(@PathVariable String email, @RequestBody UpdateUserPwRequest request) {
+        User user = userService.findByEmail(email);
+
+        if(user == null) {
+            throw new IllegalArgumentException("user not found");
+        } else {
+            User updatedUser = userService.updatePw(user.getEmail(), request);
+
+            return ResponseEntity.ok()
+                    .body(updatedUser);
+        }
     }
 }

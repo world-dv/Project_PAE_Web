@@ -86,4 +86,8 @@ public class User {
         this.location_y = location_y;
         this.updated_at = updated_at;
     }
+
+    public void updatePw(String pw) {
+        this.pw = pw;
+    }
 }

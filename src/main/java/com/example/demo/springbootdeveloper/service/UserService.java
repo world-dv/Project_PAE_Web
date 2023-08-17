@@ -1,15 +1,13 @@
 package com.example.demo.springbootdeveloper.service;
 
 import com.example.demo.springbootdeveloper.DTO.AddUserRequest;
+import com.example.demo.springbootdeveloper.DTO.UpdateUserPwRequest;
 import com.example.demo.springbootdeveloper.DTO.UpdateUserRequest;
 import com.example.demo.springbootdeveloper.domain.User;
 import com.example.demo.springbootdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -58,4 +56,15 @@ public class UserService {
         return user;
     }
 
+    @Transactional
+    public User updatePw(String email, UpdateUserPwRequest request) {
+        User user = userRepository.findByEmail(email);
+
+        if(user != null) {
+            user.updatePw(request.getPw());
+            return user;
+        } else {
+            throw new IllegalArgumentException("user not found");
+        }
+    }
 }
