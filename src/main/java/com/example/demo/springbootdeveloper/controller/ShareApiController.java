@@ -47,11 +47,14 @@ public class ShareApiController {
     }
 
     @GetMapping("/api/share/user/{nickname}")
-    public ResponseEntity<ShareResponse> findByNickname(@PathVariable String nickname) {
-        Share share = shareService.findByNickname(nickname);
+    public ResponseEntity<List<ShareResponse>> findByNickname(@PathVariable String nickname) {
+        List<ShareResponse> shares = shareService.findByNickname(nickname)
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
 
         return ResponseEntity.ok()
-                .body(new ShareResponse(share));
+                .body(shares);
     }
 
     @DeleteMapping("/api/share/{id}")

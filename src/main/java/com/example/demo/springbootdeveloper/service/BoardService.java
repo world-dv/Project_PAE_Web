@@ -40,7 +40,7 @@ public class BoardService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
-    public Board findByNickname(String nickname) {
+    public List<Board> findByNickname(String nickname) {
         return boardRepository.findBoardByNickname(nickname);
     }
 

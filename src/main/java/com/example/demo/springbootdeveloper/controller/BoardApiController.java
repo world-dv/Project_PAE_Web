@@ -53,11 +53,14 @@ public class BoardApiController {
     }
 
     @GetMapping("/api/board/user/{nickname}")
-    public ResponseEntity<BoardResponse> findBoardByUser(@PathVariable String nickname) {
-        Board board = boardService.findByNickname(nickname);
+    public ResponseEntity<List<BoardResponse>> findBoardByUser(@PathVariable String nickname) {
+        List<BoardResponse> boards = boardService.findByNickname(nickname)
+                .stream()
+                .map(BoardResponse::new)
+                .toList();
 
         return ResponseEntity.ok()
-                .body(new BoardResponse(board));
+                .body(boards);
     }
 
     @DeleteMapping("/api/board/{id}")
