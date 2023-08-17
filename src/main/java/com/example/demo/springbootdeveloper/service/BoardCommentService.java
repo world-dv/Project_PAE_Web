@@ -41,4 +41,9 @@ public class BoardCommentService {
         List<Board_comment> boardComments = boardCommentRepository.findByBoardId(boardId);
         return boardComments;
     }
+
+    public List<Board_comment> findByNickname(String nickname) {
+        List<Board_comment> boardComments = boardCommentRepository.findByNickname(nickname);
+        return boardComments;
+    }
 }

@@ -46,9 +46,20 @@ public class ShareCommentApiController {
                 .body(updatedShareComment);
     }
 
-    @GetMapping("/api/shareComments/{id}")
+    @GetMapping("/api/shareComments/{shareId}")
     public ResponseEntity<List<ShareCommentResponse>> findByShareId(@PathVariable long shareId) {
         List<ShareCommentResponse> shareComments = shareCommentService.findByShareId(shareId)
+                .stream()
+                .map(ShareCommentResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(shareComments);
+    }
+
+    @GetMapping("/api/shareComment/user/{nickname}")
+    public ResponseEntity<List<ShareCommentResponse>> findByNickname(@PathVariable String nickname) {
+        List<ShareCommentResponse> shareComments = shareCommentService.findByNickname(nickname)
                 .stream()
                 .map(ShareCommentResponse::new)
                 .toList();

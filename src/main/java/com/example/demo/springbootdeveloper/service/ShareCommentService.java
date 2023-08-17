@@ -39,7 +39,11 @@ public class ShareCommentService {
 
     public List<Share_comment> findByShareId(long shareId) {
         List<Share_comment> shareComments = shareCommentRepository.findByShareId(shareId);
+        return shareComments;
+    }
 
+    public List<Share_comment> findByNickname(String nickname) {
+        List<Share_comment> shareComments = shareCommentRepository.findByNickname(nickname);
         return shareComments;
     }
 }

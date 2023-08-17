@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface BoardCommentRepository extends JpaRepository<Board_comment, Long> {
     List<Board_comment> findByBoardId(long boardId);
-
+    List<Board_comment> findByNickname(String nickname);
 }

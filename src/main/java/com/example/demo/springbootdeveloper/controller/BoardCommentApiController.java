@@ -56,4 +56,15 @@ public class BoardCommentApiController {
         return ResponseEntity.ok()
                 .body(boardComments);
     }
+
+    @GetMapping("/api/boardComment/user/{nickname}")
+    public ResponseEntity<List<BoardCommentResponse>> findBoardCommentByNickname(@PathVariable String nickname) {
+        List<BoardCommentResponse> boardComments = boardCommentService.findByNickname(nickname)
+                .stream()
+                .map(BoardCommentResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(boardComments);
+    }
 }

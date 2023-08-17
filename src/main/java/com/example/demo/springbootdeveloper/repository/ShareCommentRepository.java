@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ShareCommentRepository extends JpaRepository<Share_comment, Long> {
     List<Share_comment> findByShareId(long shareId);
+    List<Share_comment> findByNickname(String nickname);
 }
