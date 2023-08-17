@@ -57,6 +57,17 @@ public class ShareApiController {
                 .body(shares);
     }
 
+    @GetMapping("/api/share/address/{address}")
+    public ResponseEntity<List<ShareResponse>> findByAddress(@PathVariable String address) {
+        List<ShareResponse> shares = shareService.findByAddress(address)
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(shares);
+    }
+
     @DeleteMapping("/api/share/{id}")
     public ResponseEntity<Void> deleteShare(@PathVariable long id) {
         shareService.delete(id);
