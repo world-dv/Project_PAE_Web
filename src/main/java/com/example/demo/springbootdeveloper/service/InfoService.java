@@ -29,6 +29,10 @@ public class InfoService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
+    public List<Info> findByCategory(String category) {
+        return infoRepository.findByCategory(category);
+    }
+
     public void delete(long id) {
         infoRepository.deleteById(id);
     }
