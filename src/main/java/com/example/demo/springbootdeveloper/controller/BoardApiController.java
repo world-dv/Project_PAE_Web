@@ -52,6 +52,14 @@ public class BoardApiController {
                 .body(new BoardResponseOne(board));
     }
 
+    @GetMapping("/api/board/user/{nickname}")
+    public ResponseEntity<BoardResponse> findBoardByUser(@PathVariable String nickname) {
+        Board board = boardService.findByNickname(nickname);
+
+        return ResponseEntity.ok()
+                .body(new BoardResponse(board));
+    }
+
     @DeleteMapping("/api/board/{id}")
     public ResponseEntity<Void> deleteBoard(@PathVariable long id) {
         boardService.delete(id);

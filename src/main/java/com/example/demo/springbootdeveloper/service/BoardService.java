@@ -40,6 +40,10 @@ public class BoardService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
+    public Board findByNickname(String nickname) {
+        return boardRepository.findBoardByNickname(nickname);
+    }
+
     public void delete(long id) {
         boardRepository.deleteById(id);
     }

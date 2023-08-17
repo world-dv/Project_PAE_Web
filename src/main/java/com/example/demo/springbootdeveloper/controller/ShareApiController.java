@@ -46,6 +46,14 @@ public class ShareApiController {
                 .body(new ShareResponseOne(share));
     }
 
+    @GetMapping("/api/share/user/{nickname}")
+    public ResponseEntity<ShareResponse> findByNickname(@PathVariable String nickname) {
+        Share share = shareService.findByNickname(nickname);
+
+        return ResponseEntity.ok()
+                .body(new ShareResponse(share));
+    }
+
     @DeleteMapping("/api/share/{id}")
     public ResponseEntity<Void> deleteShare(@PathVariable long id) {
         shareService.delete(id);
