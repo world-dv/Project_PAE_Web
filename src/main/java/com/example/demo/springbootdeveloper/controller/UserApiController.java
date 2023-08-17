@@ -45,6 +45,14 @@ public class UserApiController {
                 .body(new UserResponse(user));
     }
 
+    @GetMapping("/api/user/phone/{phone}")
+    public ResponseEntity<String> findByPhone(@PathVariable String phone) {
+        User user = userService.findByPhone(phone);
+
+        return ResponseEntity.ok()
+                .body(user.getEmail());
+    }
+
     @DeleteMapping("/api/user/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable long id) {
         userService.delete(id);
