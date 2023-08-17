@@ -45,7 +45,7 @@ public class InfoApiController {
                 .body(new InfoResponseOne(info));
     }
 
-    @GetMapping("/api/info/{category}")
+    @GetMapping("/api/info/category/{category}")
     public ResponseEntity<List<InfoResponse>> findByCategory(@PathVariable String category) {
         List<InfoResponse> infos = infoService.findByCategory(category)
                 .stream()

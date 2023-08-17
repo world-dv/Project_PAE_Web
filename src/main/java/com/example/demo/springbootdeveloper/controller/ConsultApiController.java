@@ -46,6 +46,17 @@ public class ConsultApiController {
                 .body(new ConsultResponseOne(consult));
     }
 
+    @GetMapping("/api/consult/category/{category}")
+    public ResponseEntity<List<ConsultResponse>> findByCategory(String category) {
+        List<ConsultResponse> consultResponses = consultService.findByCategory(category)
+                .stream()
+                .map(ConsultResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(consultResponses);
+    }
+
     @DeleteMapping("/api/consult/{id}")
     public ResponseEntity<Void> deleteConsult(@PathVariable long id) {
         consultService.delete(id);

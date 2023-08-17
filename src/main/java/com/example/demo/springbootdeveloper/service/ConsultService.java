@@ -30,6 +30,10 @@ public class ConsultService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
+    public List<Consult> findByCategory(String category) {
+        return consultRepository.findByCategory(category);
+    }
+
     public void delete(long id) {
         consultRepository.deleteById(id);
     }
