@@ -27,7 +27,7 @@ public class NoticeApiController {
                 .body(savedNotice);
     }
 
-    @PostMapping("/api/notices")
+    @GetMapping("/api/notices")
     public ResponseEntity<List<NoticeResponse>> findAllNotice() {
         List<NoticeResponse> notices = noticeService.findAll()
                 .stream()

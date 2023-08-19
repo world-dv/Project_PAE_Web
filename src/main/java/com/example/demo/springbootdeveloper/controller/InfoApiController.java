@@ -18,7 +18,7 @@ public class InfoApiController {
 
     private final InfoService infoService;
 
-    @PostMapping("api/info")
+    @PostMapping("/api/info")
     public ResponseEntity<Info> addInfo(@RequestBody AddInfoRequest request) {
         Info savedInfo = infoService.save(request);
 
@@ -26,7 +26,7 @@ public class InfoApiController {
                 .body(savedInfo);
     }
 
-    @GetMapping("/api/info/list")
+    @GetMapping("/api/infos")
     public ResponseEntity<List<InfoResponse>> findAllInfo() {
         List<InfoResponse> info = infoService.findAll()
                 .stream()
