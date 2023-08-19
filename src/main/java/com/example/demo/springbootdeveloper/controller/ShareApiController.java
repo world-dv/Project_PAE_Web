@@ -76,7 +76,7 @@ public class ShareApiController {
                 .build();
     }
 
-    @PutMapping("api/share/{id}")
+    @PutMapping("/api/share/{id}")
     public ResponseEntity<Share> updateShare(@PathVariable long id, @RequestBody UpdateShareRequest request) {
         Share updatedShare = shareService.update(id, request);
 
