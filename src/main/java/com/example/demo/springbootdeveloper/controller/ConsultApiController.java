@@ -47,7 +47,7 @@ public class ConsultApiController {
     }
 
     @GetMapping("/api/consult/category/{category}")
-    public ResponseEntity<List<ConsultResponse>> findByCategory(String category) {
+    public ResponseEntity<List<ConsultResponse>> findByCategory(@PathVariable String category) {
         List<ConsultResponse> consultResponses = consultService.findByCategory(category)
                 .stream()
                 .map(ConsultResponse::new)

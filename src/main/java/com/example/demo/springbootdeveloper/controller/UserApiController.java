@@ -84,12 +84,12 @@ public class UserApiController {
         }
     }
 
-    @PutMapping("/api/user/updatePw/{email}/{pw}")
-    public ResponseEntity<User> updateUserPwByEmailAndPw(@PathVariable String email, @PathVariable String pw, @RequestBody UpdateUserRequest request) {
+    @PutMapping("/api/user/updatepw/{email}/{pw}")
+    public ResponseEntity<User> updateUserPwByEmailAndPw(@PathVariable String email, @PathVariable String pw, @RequestBody UpdateUserPwRequest request) {
         User user = userService.findByEmail(email);
 
         if(pw.equals(user.getPw())) {
-            User updatedUser = userService.update(user.getId(), request);
+            User updatedUser = userService.updatePw(user.getEmail(), request);
             return ResponseEntity.ok()
                     .body(updatedUser);
         } else {

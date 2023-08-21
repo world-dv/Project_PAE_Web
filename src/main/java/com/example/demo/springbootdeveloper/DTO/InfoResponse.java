@@ -9,10 +9,12 @@ import java.sql.Date;
 public class InfoResponse {
 
     private final String title;
+    private final String category;
     private final String content;
 
     public InfoResponse(Info info) {
         this.title = info.getTitle();
+        this.category = info.getCategory();
         this.content = info.getContent();
     }
 }
