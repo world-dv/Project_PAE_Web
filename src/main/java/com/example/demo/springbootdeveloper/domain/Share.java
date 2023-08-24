@@ -2,6 +2,7 @@ package com.example.demo.springbootdeveloper.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -14,7 +15,7 @@ public class Share {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", updatable = false)
-    private Long share_id;
+    private Long shareId;
 
     @Column(name="category", updatable = false)
     private String category;
@@ -70,6 +71,7 @@ public class Share {
         this.updated_at = updated_at;
     }
 
+    /*
     public void update(String title, String category, String content, String img, Date date, String state, String address, Integer price, String nickname, Timestamp updated_at) {
         this.title = title;
         this.category = category;
@@ -82,4 +84,6 @@ public class Share {
         this.nickname = nickname;
         this.updated_at = updated_at;
     }
+
+     */
 }

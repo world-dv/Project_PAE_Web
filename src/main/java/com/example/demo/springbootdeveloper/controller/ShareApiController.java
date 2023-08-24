@@ -6,6 +6,7 @@ import com.example.demo.springbootdeveloper.DTO.ShareResponseOne;
 import com.example.demo.springbootdeveloper.DTO.UpdateShareRequest;
 import com.example.demo.springbootdeveloper.domain.Share;
 import com.example.demo.springbootdeveloper.service.ShareService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

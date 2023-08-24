@@ -8,7 +8,11 @@ import com.example.demo.springbootdeveloper.repository.ShareRepository;
 import com.example.demo.springbootdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -53,21 +57,37 @@ public class ShareService {
 
     @Transactional
     public Share update(long id, UpdateShareRequest request) {
+
         Share share = shareRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
 
-        share.update(request.getTitle(),
-                request.getCategory(),
-                request.getContent(),
-                request.getImg(),
-                request.getDate(),
-                request.getState(),
-                request.getAddress(),
-                request.getPrice(),
-                request.getNickname(),
-                request.getUpdated_at()
-        );
+        User user = userRepository.findByNickname(request.getNickname());
+        if (user == null) {
+            throw new IllegalArgumentException("User not found with nickname: " + request.getNickname());
+        }
 
-        return share;
+        if (share.getNickname().equals(user.getNickname())) {
+            /*share.update(request.getTitle(),
+                    request.getCategory(),
+                    request.getContent(),
+                    request.getImg(),
+                    request.getDate(),
+                    request.getState(),
+                    request.getAddress(),
+                    request.getPrice(),
+                    request.getNickname(),
+                    request.getUpdated_at()
+            );
+
+             */
+
+            shareRepository.update(id, request);
+
+            //shareRepository.saveAndFlush(share);
+
+            return share;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }
