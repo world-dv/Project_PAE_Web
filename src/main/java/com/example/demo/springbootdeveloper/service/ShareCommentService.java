@@ -2,6 +2,7 @@ package com.example.demo.springbootdeveloper.service;
 
 import com.example.demo.springbootdeveloper.DTO.AddShareCommentRequest;
 import com.example.demo.springbootdeveloper.DTO.UpdateShareCommentRequest;
+import com.example.demo.springbootdeveloper.domain.Share;
 import com.example.demo.springbootdeveloper.domain.Share_comment;
 import com.example.demo.springbootdeveloper.repository.ShareCommentRepository;
 import jakarta.transaction.Transactional;
@@ -45,5 +46,11 @@ public class ShareCommentService {
     public List<Share_comment> findByNickname(String nickname) {
         List<Share_comment> shareComments = shareCommentRepository.findByNickname(nickname);
         return shareComments;
+    }
+
+    public Share_comment findById(long id) {
+        Share_comment shareComment = shareCommentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found"));
+        return shareComment;
     }
 }

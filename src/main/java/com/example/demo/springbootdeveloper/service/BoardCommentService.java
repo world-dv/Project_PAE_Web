@@ -46,4 +46,10 @@ public class BoardCommentService {
         List<Board_comment> boardComments = boardCommentRepository.findByNickname(nickname);
         return boardComments;
     }
+
+    public Board_comment findById(long id) {
+        Board_comment boardComment = boardCommentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found"));
+        return boardComment;
+    }
 }

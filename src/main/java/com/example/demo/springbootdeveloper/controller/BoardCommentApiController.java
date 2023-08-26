@@ -67,4 +67,12 @@ public class BoardCommentApiController {
         return ResponseEntity.ok()
                 .body(boardComments);
     }
+
+    @GetMapping("/api/boardComment/{id}")
+    public ResponseEntity<Board_comment> findBoardCommentById(@PathVariable long id) {
+        Board_comment boardComment = boardCommentService.findById(id);
+
+        return ResponseEntity.ok()
+                .body(boardComment);
+    }
 }

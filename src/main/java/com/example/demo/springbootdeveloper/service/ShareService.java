@@ -67,24 +67,7 @@ public class ShareService {
         }
 
         if (share.getNickname().equals(user.getNickname())) {
-            /*share.update(request.getTitle(),
-                    request.getCategory(),
-                    request.getContent(),
-                    request.getImg(),
-                    request.getDate(),
-                    request.getState(),
-                    request.getAddress(),
-                    request.getPrice(),
-                    request.getNickname(),
-                    request.getUpdated_at()
-            );
-
-             */
-
             shareRepository.update(id, request);
-
-            //shareRepository.saveAndFlush(share);
-
             return share;
         } else {
             throw new IllegalArgumentException();

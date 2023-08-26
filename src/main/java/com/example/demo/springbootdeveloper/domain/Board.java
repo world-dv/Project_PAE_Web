@@ -15,8 +15,8 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="board_id", updatable = false)
-    private Long id;
+    @Column(name="id", updatable = false)
+    private Long boardId;
 
     @Column(name="category", nullable = false)
     private String category;
@@ -53,15 +53,6 @@ public class Board {
         this.date = date;
         this.nickname = nickname;
         this.created_at = created_at;
-        this.updated_at = updated_at;
-    }
-
-    public void update(String title, String category, String content, Date date, String nickname, Timestamp updated_at) {
-        this.title = title;
-        this.category = category;
-        this.content = content;
-        this.date = date;
-        this.nickname = nickname;
         this.updated_at = updated_at;
     }
 }

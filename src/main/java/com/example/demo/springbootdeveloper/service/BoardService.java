@@ -53,15 +53,17 @@ public class BoardService {
         Board board = boardRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
 
-        board.update(
-                request.getTitle(),
-                request.getCategory(),
-                request.getContent(),
-                request.getDate(),
-                request.getNickname(),
-                request.getUpdated_at()
-        );
+        User user = userRepository.findByNickname(request.getNickname());
+        if (user == null) {
+            throw new IllegalArgumentException("User not found");
+        }
 
-        return board;
+        if (board.getNickname().equals(user.getNickname())) {
+            boardRepository.update(id, request);
+            return board;
+        } else {
+            throw new IllegalArgumentException();
+
+        }
     }
 }

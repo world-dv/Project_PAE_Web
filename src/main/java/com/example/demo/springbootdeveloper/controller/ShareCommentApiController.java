@@ -3,6 +3,7 @@ package com.example.demo.springbootdeveloper.controller;
 import com.example.demo.springbootdeveloper.DTO.AddShareCommentRequest;
 import com.example.demo.springbootdeveloper.DTO.ShareCommentResponse;
 import com.example.demo.springbootdeveloper.DTO.UpdateShareCommentRequest;
+import com.example.demo.springbootdeveloper.domain.Share;
 import com.example.demo.springbootdeveloper.domain.Share_comment;
 import com.example.demo.springbootdeveloper.service.ShareCommentService;
 import org.springframework.http.HttpStatus;
@@ -66,5 +67,13 @@ public class ShareCommentApiController {
 
         return ResponseEntity.ok()
                 .body(shareComments);
+    }
+
+    @GetMapping("/api/shareComment/{id}")
+    public ResponseEntity<Share_comment> findShareCommentById(@PathVariable long id){
+        Share_comment shareComment = shareCommentService.findById(id);
+
+        return ResponseEntity.ok()
+                .body(shareComment);
     }
 }

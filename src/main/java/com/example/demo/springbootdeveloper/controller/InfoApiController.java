@@ -3,6 +3,7 @@ package com.example.demo.springbootdeveloper.controller;
 import com.example.demo.springbootdeveloper.DTO.AddInfoRequest;
 import com.example.demo.springbootdeveloper.DTO.InfoResponse;
 import com.example.demo.springbootdeveloper.DTO.InfoResponseOne;
+import com.example.demo.springbootdeveloper.DTO.UpdateInfoRequest;
 import com.example.demo.springbootdeveloper.domain.Info;
 import com.example.demo.springbootdeveloper.service.InfoService;
 import lombok.RequiredArgsConstructor;
@@ -62,5 +63,13 @@ public class InfoApiController {
 
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/info/{id}")
+    public ResponseEntity<Info> updateInfo(@PathVariable long id, @RequestBody UpdateInfoRequest request) {
+        Info updatedInfo = infoService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updatedInfo);
     }
 }

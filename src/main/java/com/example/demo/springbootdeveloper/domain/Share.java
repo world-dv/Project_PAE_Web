@@ -70,20 +70,4 @@ public class Share {
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
-
-    /*
-    public void update(String title, String category, String content, String img, Date date, String state, String address, Integer price, String nickname, Timestamp updated_at) {
-        this.title = title;
-        this.category = category;
-        this.content = content;
-        this.img = img;
-        this.date = date;
-        this.state = state;
-        this.address = address;
-        this.price = price;
-        this.nickname = nickname;
-        this.updated_at = updated_at;
-    }
-
-     */
 }

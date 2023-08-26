@@ -15,7 +15,6 @@ public class UpdateBoardRequest {
     private String title;
     private String category;
     private String content;
-    private Date date;
     private String nickname;
     private Timestamp updated_at;
 }
