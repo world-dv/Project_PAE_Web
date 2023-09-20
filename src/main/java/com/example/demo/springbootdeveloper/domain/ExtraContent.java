@@ -1,6 +1,7 @@
 package com.example.demo.springbootdeveloper.domain;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Add {
+public class ExtraContent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +24,7 @@ public class Add {
     private String content;
 
     @Builder
-    public Add(String category, String content) {
+    public ExtraContent(String category, String content) {
         this.category = category;
         this.content = content;
     }

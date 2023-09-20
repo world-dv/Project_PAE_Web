@@ -1,6 +1,7 @@
 package com.example.demo.springbootdeveloper.domain;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 

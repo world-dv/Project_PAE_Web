@@ -1,11 +1,10 @@
 package com.example.demo.springbootdeveloper.domain;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
-import org.springframework.stereotype.Component;
 
 import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity

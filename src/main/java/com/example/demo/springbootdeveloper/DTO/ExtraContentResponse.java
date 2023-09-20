@@ -1,14 +1,14 @@
 package com.example.demo.springbootdeveloper.DTO;
 
-import com.example.demo.springbootdeveloper.domain.Add;
+import com.example.demo.springbootdeveloper.domain.ExtraContent;
 import lombok.Getter;
 
 @Getter
-public class AddResponse {
+public class ExtraContentResponse {
 
     private final String content;
 
-    public AddResponse(Add add) {
+    public ExtraContentResponse(ExtraContent add) {
         this.content = add.getContent();
     }
 }
