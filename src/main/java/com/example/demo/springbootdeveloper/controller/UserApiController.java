@@ -38,9 +38,9 @@ public class UserApiController {
         }
     }
 
-    @GetMapping("/api/user/{id}")
-    public ResponseEntity<UserResponse> findUser(@PathVariable long id) {
-        User user = userService.findById(id);
+    @GetMapping("/api/user/{email}")
+    public ResponseEntity<UserResponse> findUser(@PathVariable String email) {
+        User user = userService.findByEmail(email);
 
         return ResponseEntity.ok()
                 .body(new UserResponse(user));

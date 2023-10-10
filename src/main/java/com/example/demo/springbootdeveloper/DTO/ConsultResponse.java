@@ -8,15 +8,19 @@ import java.sql.Date;
 @Getter
 public class ConsultResponse {
 
-    private final  String title;
+    private final String title;
     private final String category;
     private final String content;
+    private final Date date;
+    private final String url;
     private final String img;
 
     public ConsultResponse(Consult consult) {
         this.title = consult.getTitle();
         this.category = consult.getCategory();
         this.content = consult.getContent();
+        this.date = consult.getDate();
+        this.url = consult.getUrl();
         this.img = consult.getImg();
     }
 }
