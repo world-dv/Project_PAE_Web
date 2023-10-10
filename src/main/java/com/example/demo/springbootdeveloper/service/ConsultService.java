@@ -34,6 +34,14 @@ public class ConsultService {
         return consultRepository.findByCategory(category);
     }
 
+    public List<Consult> findProgram() {
+        return consultRepository.findByCategory("Program");
+    }
+
+    public List<Consult> findCenter() {
+        return consultRepository.findByCategory("Center");
+    }
+
     public void delete(long id) {
         consultRepository.deleteById(id);
     }

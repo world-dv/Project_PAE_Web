@@ -57,6 +57,28 @@ public class ConsultApiController {
                 .body(consultResponses);
     }
 
+    @GetMapping("/api/consult/program")
+    public ResponseEntity<List<ConsultResponse>> findProgram() {
+        List<ConsultResponse> programConsultResponse = consultService.findProgram()
+                .stream()
+                .map(ConsultResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(programConsultResponse);
+    }
+
+    @GetMapping("/api/consult/center")
+    public ResponseEntity<List<ConsultResponse>> findCenter() {
+        List<ConsultResponse> centerConsultResponse = consultService.findCenter()
+                .stream()
+                .map(ConsultResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(centerConsultResponse);
+    }
+
     @DeleteMapping("/api/consult/{id}")
     public ResponseEntity<Void> deleteConsult(@PathVariable long id) {
         consultService.delete(id);

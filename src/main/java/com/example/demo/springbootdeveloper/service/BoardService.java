@@ -44,6 +44,14 @@ public class BoardService {
         return boardRepository.findBoardByNickname(nickname);
     }
 
+    public List<Board> findPaeInfo() {
+        return boardRepository.findByCategory("육아 정보");
+    }
+
+    public List<Board> findDailyInfo() {
+        return boardRepository.findByCategory("일상 정보");
+    }
+
     public void delete(long id) {
         boardRepository.deleteById(id);
     }

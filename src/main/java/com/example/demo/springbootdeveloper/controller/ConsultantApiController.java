@@ -43,6 +43,28 @@ public class ConsultantApiController {
                 .body(new ConsultantResponseOne(consultant));
     }
 
+    @GetMapping("/api/consultant/parenting")
+    public ResponseEntity<List<ConsultantResponse>> findParentingConsultation() {
+        List<ConsultantResponse> paeConsultant = consultantService.findParentingConsultant()
+                .stream()
+                .map(ConsultantResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(paeConsultant);
+    }
+
+    @GetMapping("/api/consultant/home")
+    public ResponseEntity<List<ConsultantResponse>> findHomeConsultation() {
+        List<ConsultantResponse> homeConsultant = consultantService.findHomeConsultant()
+                .stream()
+                .map(ConsultantResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(homeConsultant);
+    }
+
     @DeleteMapping("/api/consultant/{id}")
     public ResponseEntity<Void> deleteConsultant(@PathVariable long id) {
         consultantService.delete(id);

@@ -29,6 +29,14 @@ public class ConsultantService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
+    public List<Consultant> findParentingConsultant() {
+        return consultantRepository.findByField("육아 상담");
+    }
+
+    public List<Consultant> findHomeConsultant() {
+        return consultantRepository.findByField("가정 상담");
+    }
+
     public void delete(long id) {
         consultantRepository.deleteById(id);
     }

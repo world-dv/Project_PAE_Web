@@ -1,7 +1,7 @@
 package com.example.demo.springbootdeveloper.domain;
-//import jakarta.persistence.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+//import javax.persistence.*;
 import lombok.*;
 
 import java.sql.Date;

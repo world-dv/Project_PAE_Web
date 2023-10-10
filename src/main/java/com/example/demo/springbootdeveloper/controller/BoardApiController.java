@@ -52,6 +52,28 @@ public class BoardApiController {
                 .body(new BoardResponseOne(board));
     }
 
+    @GetMapping("/api/board/parenting")
+    public ResponseEntity<List<BoardResponse>> findParentingInfo() {
+        List<BoardResponse> paeBoards = boardService.findPaeInfo()
+                .stream()
+                .map(BoardResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(paeBoards);
+    }
+
+    @GetMapping("/api/board/daily")
+    public ResponseEntity<List<BoardResponse>> findDailyInfo() {
+        List<BoardResponse> dailyBoard = boardService.findDailyInfo()
+                .stream()
+                .map(BoardResponse::new)
+                .toList();
+
+        return ResponseEntity.ok()
+                .body(dailyBoard);
+    }
+
     @GetMapping("/api/board/user/{nickname}")
     public ResponseEntity<List<BoardResponse>> findBoardByUser(@PathVariable String nickname) {
         List<BoardResponse> boards = boardService.findByNickname(nickname)
