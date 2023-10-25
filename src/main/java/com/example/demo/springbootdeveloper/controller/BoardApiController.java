@@ -6,8 +6,6 @@ import com.example.demo.springbootdeveloper.DTO.BoardResponseOne;
 import com.example.demo.springbootdeveloper.DTO.UpdateBoardRequest;
 import com.example.demo.springbootdeveloper.domain.Board;
 import com.example.demo.springbootdeveloper.service.BoardService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -42,17 +40,6 @@ public class BoardApiController {
 
         return ResponseEntity.ok()
                 .body(boards);
-    }
-
-    @GetMapping("/api/board/{email}")
-    public ResponseEntity<List<BoardResponse>> findUserBoards(@PathVariable String email) {
-        List<BoardResponse> board = boardService.findByEmail(email)
-                .stream()
-                .map(BoardResponse::new)
-                .toList();
-
-        return ResponseEntity.ok()
-                .body(board);
     }
 
     @GetMapping("/api/board/{id}")

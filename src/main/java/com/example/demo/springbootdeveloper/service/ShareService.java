@@ -43,16 +43,28 @@ public class ShareService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
-    public List<Share> findByEmail(String email) {
-        return shareRepository.findByEmail(email);
-    }
-
     public List<Share> findByAddress(String address) {
         return shareRepository.findByAddress(address);
     }
 
     public List<Share> findByNickname(String nickname) {
         return shareRepository.findByNickname(nickname);
+    }
+
+    public List<Share> findSale() {
+        return shareRepository.findByState("판매 중");
+    }
+
+    public List<Share> findSaleEnd() {
+        return shareRepository.findByState("판매 완료");
+    }
+
+    public List<Share> findSharing() {
+        return shareRepository.findByState("나눔 중");
+    }
+
+    public List<Share> findSharingEnd() {
+        return shareRepository.findByState("나눔 완료");
     }
 
     public void delete(long id) {

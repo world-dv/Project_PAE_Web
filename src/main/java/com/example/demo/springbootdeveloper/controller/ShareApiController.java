@@ -39,22 +39,52 @@ public class ShareApiController {
                 .body(shares);
     }
 
+    @GetMapping("/api/share/sale")
+    public ResponseEntity<List<ShareResponse>> findSaleShare() {
+        List<ShareResponse> shareResponses = shareService.findSale()
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
+    @GetMapping("/api/share/sale-end")
+    public ResponseEntity<List<ShareResponse>> findSaleShareEnd() {
+        List<ShareResponse> shareResponses = shareService.findSaleEnd()
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
+    @GetMapping("/api/share/sharing")
+    public ResponseEntity<List<ShareResponse>> findSharing() {
+        List<ShareResponse> shareResponses = shareService.findSharing()
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
+    @GetMapping("/api/share/sharing-end")
+    public ResponseEntity<List<ShareResponse>> findSharingEnd() {
+        List<ShareResponse> shareResponses = shareService.findSharingEnd()
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
     @GetMapping("/api/share/{id}")
     public ResponseEntity<ShareResponseOne> findShare(@PathVariable long id) {
         Share share = shareService.findById(id);
 
         return ResponseEntity.ok()
                 .body(new ShareResponseOne(share));
-    }
-
-    @GetMapping("/api/share/{email}")
-    public ResponseEntity<List<ShareResponse>> findByEmail(@PathVariable String email) {
-        List<ShareResponse> shareResponses = shareService.findByEmail(email)
-                .stream()
-                .map(ShareResponse::new)
-                .toList();
-        return ResponseEntity.ok()
-                .body(shareResponses);
     }
 
     @GetMapping("/api/share/user/{nickname}")

@@ -13,7 +13,10 @@ public interface ShareRepository extends JpaRepository<Share, Long> {
 
     List<Share> findByNickname(String nickname);
     List<Share> findByAddress(String address);
-    List<Share> findByEmail(String email);
+
+    List<Share> findByState(String state);
+    List<Share> findByCategory(String category);
+
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Query("UPDATE Share s SET s.title = :#{#request.title}, s.category = :#{#request.category}, s.content = :#{#request.content}, s.img = :#{#request.img}, s.date = :#{#request.date}, s.state = :#{#request.state}, s.address = :#{#request.address}, s.price = :#{#request.price}, s.nickname = :#{#request.nickname}, s.updated_at = :#{#request.updated_at} WHERE s.shareId = :shareId")
     int update(@Param("shareId") Long shareId, @Param("request") UpdateShareRequest request);

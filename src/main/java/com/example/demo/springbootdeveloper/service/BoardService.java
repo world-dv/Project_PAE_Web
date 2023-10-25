@@ -41,12 +41,8 @@ public class BoardService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
-    public List<Board> findByEmail(String email) {
-        return boardRepository.findByEmail(email);
-    }
-
     public List<Board> findByNickname(String nickname) {
-        return boardRepository.findBoardByNickname(nickname);
+        return boardRepository.findByNickname(nickname);
     }
 
     public List<Board> findPaeInfo() {
