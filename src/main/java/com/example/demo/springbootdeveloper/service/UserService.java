@@ -3,11 +3,14 @@ package com.example.demo.springbootdeveloper.service;
 import com.example.demo.springbootdeveloper.DTO.AddUserRequest;
 import com.example.demo.springbootdeveloper.DTO.UpdateUserPwRequest;
 import com.example.demo.springbootdeveloper.DTO.UpdateUserRequest;
+import com.example.demo.springbootdeveloper.DTO.UserResponse;
 import com.example.demo.springbootdeveloper.domain.User;
 import com.example.demo.springbootdeveloper.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -22,6 +25,10 @@ public class UserService {
     public User findById(long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found + " + id));
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     public User findByEmail(String email) {

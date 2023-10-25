@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 public class UserApiController {
@@ -44,6 +46,16 @@ public class UserApiController {
 
         return ResponseEntity.ok()
                 .body(new UserResponse(user));
+    }
+
+    @GetMapping("/api/users")
+    public ResponseEntity<List<UserResponse>> findAllUser() {
+        List<UserResponse> allUser = userService.findAll()
+                .stream()
+                .map(UserResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(allUser);
     }
 
     @GetMapping("/api/user/phone/{phone}")
