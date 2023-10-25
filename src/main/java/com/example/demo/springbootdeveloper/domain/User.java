@@ -17,19 +17,19 @@ public class User {
     @Column(name="user_id", updatable = false)
     private Long id;
 
-    @Column(name="pw", nullable = false)
+    @Column(name="pw", nullable = false, unique = true)
     private String pw;
 
     @Column(name="name", nullable = false)
     private String name;
 
-    @Column(name="email", nullable = false)
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
     @Column(name="address", nullable = false)
     private String address;
 
-    @Column(name="phone", nullable = false)
+    @Column(name="phone", nullable = false, unique = true)
     private String phone;
 
     @Column(name="date", nullable = false)
@@ -41,7 +41,7 @@ public class User {
     @Column(name="gender", nullable = true)
     private boolean gender;
 
-    @Column(name="user_nickname", nullable = false)
+    @Column(name="user_nickname", nullable = false, unique = true)
     private String nickname;
 
     @Column(name="location_x", nullable = false)

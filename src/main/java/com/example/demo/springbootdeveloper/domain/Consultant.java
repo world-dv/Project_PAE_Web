@@ -25,7 +25,7 @@ public class Consultant {
     @Column(name="gender", nullable = false)
     private boolean gender;
 
-    @Column(name="email", nullable = false)
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
     @Column(name="detail", nullable = true)
