@@ -67,6 +67,14 @@ public class ShareService {
         return shareRepository.findByState("나눔 완료");
     }
 
+    public List<Share> findClothes() {
+        return shareRepository.findByCategory("의류");
+    }
+
+    public List<Share> findSupplies() {
+        return shareRepository.findByCategory("용품");
+    }
+
     public void delete(long id) {
         shareRepository.deleteById(id);
     }

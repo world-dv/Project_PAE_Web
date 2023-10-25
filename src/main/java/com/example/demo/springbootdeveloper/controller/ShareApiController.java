@@ -98,6 +98,26 @@ public class ShareApiController {
                 .body(shares);
     }
 
+    @GetMapping("/api/share/clothes")
+    public ResponseEntity<List<ShareResponse>> findClothes() {
+        List<ShareResponse> shareResponses = shareService.findClothes()
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
+    @GetMapping("/api/share/supplies")
+    public ResponseEntity<List<ShareResponse>> findSupplies() {
+        List<ShareResponse> shareResponses = shareService.findSupplies()
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
     @GetMapping("/api/share/address/{address}")
     public ResponseEntity<List<ShareResponse>> findByAddress(@PathVariable String address) {
         List<ShareResponse> shares = shareService.findByAddress(address)
