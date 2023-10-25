@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 public class ShareResponse {
 
+    private final Long id;
     private final String title;
     private final String category;
     private final String img;
@@ -14,6 +15,7 @@ public class ShareResponse {
     private final String nickname;
 
     public ShareResponse(Share share) {
+        this.id = share.getShareId();
         this.title = share.getTitle();
         this.category = share.getCategory();
         this.img = share.getImg();

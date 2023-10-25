@@ -47,6 +47,16 @@ public class ShareApiController {
                 .body(new ShareResponseOne(share));
     }
 
+    @GetMapping("/api/share/{email}")
+    public ResponseEntity<List<ShareResponse>> findByEmail(@PathVariable String email) {
+        List<ShareResponse> shareResponses = shareService.findByEmail(email)
+                .stream()
+                .map(ShareResponse::new)
+                .toList();
+        return ResponseEntity.ok()
+                .body(shareResponses);
+    }
+
     @GetMapping("/api/share/user/{nickname}")
     public ResponseEntity<List<ShareResponse>> findByNickname(@PathVariable String nickname) {
         List<ShareResponse> shares = shareService.findByNickname(nickname)

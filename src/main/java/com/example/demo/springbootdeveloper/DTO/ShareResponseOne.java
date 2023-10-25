@@ -8,6 +8,7 @@ import java.sql.Date;
 @Getter
 public class ShareResponseOne {
 
+    private final Long id;
     private final String title;
     private final String category;
     private final String content;
@@ -19,6 +20,7 @@ public class ShareResponseOne {
     private final String nickname;
 
     public ShareResponseOne(Share share) {
+        this.id = share.getShareId();
         this.title = share.getTitle();
         this.category = share.getCategory();
         this.content = share.getContent();

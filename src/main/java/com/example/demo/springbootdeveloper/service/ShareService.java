@@ -43,6 +43,10 @@ public class ShareService {
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
     }
 
+    public List<Share> findByEmail(String email) {
+        return shareRepository.findByEmail(email);
+    }
+
     public List<Share> findByAddress(String address) {
         return shareRepository.findByAddress(address);
     }
