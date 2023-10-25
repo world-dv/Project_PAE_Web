@@ -1,6 +1,7 @@
 package com.example.demo.springbootdeveloper.service;
 
 import com.example.demo.springbootdeveloper.DTO.AddBoardRequest;
+import com.example.demo.springbootdeveloper.DTO.BoardResponse;
 import com.example.demo.springbootdeveloper.DTO.UpdateBoardRequest;
 import com.example.demo.springbootdeveloper.domain.Board;
 import com.example.demo.springbootdeveloper.domain.User;
@@ -38,6 +39,10 @@ public class BoardService {
     public Board findById(long id) {
         return boardRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found " + id));
+    }
+
+    public List<Board> findByEmail(String email) {
+        return boardRepository.findByEmail(email);
     }
 
     public List<Board> findByNickname(String nickname) {

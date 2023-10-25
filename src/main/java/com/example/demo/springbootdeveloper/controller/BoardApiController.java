@@ -44,12 +44,22 @@ public class BoardApiController {
                 .body(boards);
     }
 
-    @GetMapping("/api/board/{id}")
-    public ResponseEntity<BoardResponseOne> findBoard(@PathVariable long id) {
-        Board board = boardService.findById(id);
+    @GetMapping("/api/board/{email}")
+    public ResponseEntity<List<BoardResponse>> findUserBoards(@PathVariable String email) {
+        List<BoardResponse> board = boardService.findByEmail(email)
+                .stream()
+                .map(BoardResponse::new)
+                .toList();
 
         return ResponseEntity.ok()
-                .body(new BoardResponseOne(board));
+                .body(board);
+    }
+
+    @GetMapping("/api/board/{id}")
+    public ResponseEntity<BoardResponseOne> findUserBoardOne(@PathVariable long id) {
+        Board boards = boardService.findById(id);
+        return ResponseEntity.ok()
+                .body(new BoardResponseOne(boards));
     }
 
     @GetMapping("/api/board/parenting")

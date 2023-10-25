@@ -8,6 +8,7 @@ import java.sql.Date;
 @Getter
 public class BoardResponse {
 
+    private final Long id;
     private final String title;
     private final String category;
     private final String content;
@@ -15,6 +16,7 @@ public class BoardResponse {
     private final String nickname;
 
     public BoardResponse(Board board) {
+        this.id = board.getBoardId();
         this.title = board.getTitle();
         this.category = board.getCategory();
         this.content = board.getContent();
