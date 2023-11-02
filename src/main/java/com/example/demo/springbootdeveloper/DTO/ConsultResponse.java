@@ -20,7 +20,7 @@ public class ConsultResponse {
         this.category = consult.getCategory();
         this.content = consult.getContent();
         this.date = consult.getDate();
-        this.url = consult.getUrl();
+        this.url = "https://www.youtube.com/watch?v=" + consult.getUrl();
         this.img = consult.getImg();
     }
 }
