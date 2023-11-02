@@ -24,7 +24,7 @@ public class ShareResponseOne {
         this.title = share.getTitle();
         this.category = share.getCategory();
         this.content = share.getContent();
-        this.img = share.getImg();
+        this.img = share.getImg() + share.getImg2() + share.getImg3();
         this.date = share.getDate();
         this.state = share.getState();
         this.address = share.getAddress();

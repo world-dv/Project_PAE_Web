@@ -18,7 +18,7 @@ public class ShareResponse {
         this.id = share.getShareId();
         this.title = share.getTitle();
         this.category = share.getCategory();
-        this.img = share.getImg();
+        this.img = share.getImg() + share.getImg2() + share.getImg3();
         this.state = share.getState();
         this.price = share.getPrice();
         this.nickname = share.getNickname();
