@@ -21,6 +21,6 @@ public class ConsultResponse {
         this.content = consult.getContent();
         this.date = consult.getDate();
         this.url = "https://www.youtube.com/watch?v=" + consult.getUrl();
-        this.img = consult.getImg();
+        this.img = consult.getImg() + consult.getImg2() + consult.getImg3();
     }
 }

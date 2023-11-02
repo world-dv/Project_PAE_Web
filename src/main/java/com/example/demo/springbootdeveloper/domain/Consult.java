@@ -48,7 +48,7 @@ public class Consult {
     private Timestamp updated_at;
 
     @Builder
-    public Consult(String title, String category, String content, Date date, String url, String img2, String img3, String img, Timestamp created_at, Timestamp updated_at) {
+    public Consult(String title, String category, String content, Date date, String url, String img, String img2, String img3, Timestamp created_at, Timestamp updated_at) {
         this.title = title;
         this.category = category;
         this.content = content;
