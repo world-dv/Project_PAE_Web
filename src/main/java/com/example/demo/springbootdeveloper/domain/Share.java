@@ -30,6 +30,12 @@ public class Share {
     @Column(name="img", updatable = true)
     private String img;
 
+    @Column(name = "img2", nullable = false)
+    private String img2;
+
+    @Column(name = "img3", nullable = false)
+    private String img3;
+
     @Column(name="date", updatable = false)
     private Date date;
 
@@ -58,11 +64,13 @@ public class Share {
     private Timestamp updated_at;
 
     @Builder
-    public Share(String title, String category, String content, String img, Date date, String state, String address, Integer price, String nickname, Timestamp created_at, Timestamp updated_at) {
+    public Share(String title, String category, String content, String img, String img2, String img3, Date date, String state, String address, Integer price, String nickname, Timestamp created_at, Timestamp updated_at) {
         this.title = title;
         this.category = category;
         this.content = content;
         this.img = img;
+        this.img2 = img2;
+        this.img3 = img3;
         this.date = date;
         this.state = state;
         this.address = address;
