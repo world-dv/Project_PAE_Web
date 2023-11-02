@@ -35,10 +35,10 @@ public class User {
     @Column(name="date", nullable = false)
     private Date date;
 
-    @Column(name="helper", nullable = true)
+    @Column(name="helper", nullable = false)
     private boolean helper;
 
-    @Column(name="gender", nullable = true)
+    @Column(name="gender", nullable = false)
     private boolean gender;
 
     @Column(name="user_nickname", nullable = false)
