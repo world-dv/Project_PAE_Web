@@ -20,7 +20,7 @@ public class InfoResponseOne {
         this.content = info.getContent();
         this.category = info.getCategory();
         this.date = info.getDate();
-        this.url = info.getUrl();
+        this.url = "https://www.youtube.com/watch?v=" + info.getUrl();
         this.img = info.getImg();
     }
 }
