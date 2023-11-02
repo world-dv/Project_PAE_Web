@@ -35,6 +35,12 @@ public class Info {
     @Column(name="img", nullable = false)
     private String img;
 
+    @Column(name = "img2", nullable = false)
+    private String img2;
+
+    @Column(name = "img3", nullable = false)
+    private String img3;
+
     @Column(name="created_at", nullable = false)
     private Timestamp created_at;
 
@@ -42,23 +48,27 @@ public class Info {
     private Timestamp updated_at;
 
     @Builder
-    public Info(String title, String category, String content, Date date, String url, String img, Timestamp created_at, Timestamp updated_at) {
+    public Info(String title, String category, String content, Date date, String url, String img, String img2, String img3, Timestamp created_at, Timestamp updated_at) {
         this.title = title;
         this.category = category;
         this.content = content;
         this.date = date;
         this.url = url;
         this.img = img;
+        this.img2 = img2;
+        this.img3 = img3;
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
-    public void update(String title, String category, String content, Date date, String url, String img, Timestamp updated_at) {
+    public void update(String title, String category, String content, Date date, String url, String img, String img2, String img3, Timestamp updated_at) {
         this.title = title;
         this.category = category;
         this.content = content;
         this.date = date;
         this.url = url;
         this.img = img;
+        this.img2 = img2;
+        this.img3 = img3;
         this.updated_at = updated_at;
     }
 }
