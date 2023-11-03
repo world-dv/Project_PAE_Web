@@ -66,6 +66,33 @@ public class UserApiController {
                 .body(user.getEmail());
     }
 
+    @GetMapping("/api/user/check/{email}")
+    public Boolean checkUserEmail(@PathVariable String email) {
+        User user = userService.findByEmail(email);
+        if (user == null) {
+            return true;
+        }
+        return false;
+    }
+
+    @GetMapping("/api/user/check/{nickname}")
+    public Boolean checkUserNickname(@PathVariable String nickname) {
+        User user = userService.findByNickname(nickname);
+        if (user == null) {
+            return true;
+        }
+        return false;
+    }
+
+    @GetMapping("/api/user/chekc/{phone}")
+    public Boolean checkUserPhone(@PathVariable String phone) {
+        User user = userService.findByPhone(phone);
+        if (user == null) {
+            return true;
+        }
+        return false;
+    }
+
     @DeleteMapping("/api/user/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable long id) {
         userService.delete(id);

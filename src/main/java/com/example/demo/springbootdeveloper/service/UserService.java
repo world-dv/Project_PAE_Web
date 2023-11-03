@@ -39,6 +39,10 @@ public class UserService {
         return userRepository.findByPhone(phone);
     }
 
+    public User findByNickname(String nickname) {
+        return userRepository.findByNickname(nickname);
+    }
+
     public void delete(long id) {
         userRepository.deleteById(id);
     }
