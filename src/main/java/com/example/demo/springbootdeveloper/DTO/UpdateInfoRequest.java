@@ -18,5 +18,7 @@ public class UpdateInfoRequest {
     private Date date;
     private String url;
     private String img;
+    private String img2;
+    private String img3;
     private Timestamp updated_at;
 }
