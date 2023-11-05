@@ -57,6 +57,8 @@ public class ConsultService {
                 request.getDate(),
                 request.getUrl(),
                 request.getImg(),
+                request.getImg2(),
+                request.getImg3(),
                 request.getUpdated_at()
         );
 
