@@ -73,10 +73,9 @@ public class User {
         this.updated_at = updated_at;
     }
 
-    public void update(String pw, String name, String email, String address, String phone, Date date, boolean helper, boolean gender, String nickname, float location_x, float location_y, Timestamp updated_at) {
+    public void update(String pw, String name, String address, String phone, Date date, boolean helper, boolean gender, String nickname, float location_x, float location_y, Timestamp updated_at) {
         this.pw = pw;
         this.name = name;
-        this.email = email;
         this.address = address;
         this.phone = phone;
         this.date = date;

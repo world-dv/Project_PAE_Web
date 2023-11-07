@@ -48,13 +48,15 @@ public class UserService {
     }
 
     @Transactional
-    public User update(long id, UpdateUserRequest request) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found " + id));
+    public User update(String email, UpdateUserRequest request) {
+        User user = userRepository.findByEmail(email);
+
+        if (user == null) {
+            throw new IllegalArgumentException("NOT FOUND " + email);
+        }
 
         user.update(request.getPw(),
                 request.getName(),
-                request.getEmail(),
                 request.getAddress(),
                 request.getPhone(),
                 request.getDate(),

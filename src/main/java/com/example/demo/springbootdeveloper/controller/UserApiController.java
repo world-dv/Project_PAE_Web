@@ -101,9 +101,9 @@ public class UserApiController {
                 .build();
     }
 
-    @PutMapping("/api/user/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody UpdateUserRequest request) {
-        User updatedUser = userService.update(id, request);
+    @PutMapping("/api/user/{email}")
+    public ResponseEntity<User> updateUser(@PathVariable String email, @RequestBody UpdateUserRequest request) {
+        User updatedUser = userService.update(email, request);
 
         return ResponseEntity.ok()
                 .body(updatedUser);
