@@ -19,7 +19,7 @@ public class ExtraContentApiController {
         this.addService = addService;
     }
 
-    @GetMapping("/api/add/{category}")
+    @GetMapping("/api/extracontent/{category}")
     public ResponseEntity<ExtraContentResponse> findByCategory(@PathVariable String category) {
         ExtraContent adds = addService.findByCategory(category);
 
