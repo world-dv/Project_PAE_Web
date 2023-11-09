@@ -43,8 +43,8 @@ public class UserService {
         return userRepository.findByNickname(nickname);
     }
 
-    public void delete(long id) {
-        userRepository.deleteById(id);
+    public void delete(String email) {
+        userRepository.deleteByEmail(email);
     }
 
     @Transactional

@@ -84,7 +84,7 @@ public class UserApiController {
         return false;
     }
 
-    @GetMapping("/api/user/chekc/{phone}")
+    @GetMapping("/api/user/check/{phone}")
     public Boolean checkUserPhone(@PathVariable String phone) {
         User user = userService.findByPhone(phone);
         if (user == null) {
@@ -93,9 +93,9 @@ public class UserApiController {
         return false;
     }
 
-    @DeleteMapping("/api/user/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable long id) {
-        userService.delete(id);
+    @DeleteMapping("/api/user/{email}")
+    public ResponseEntity<Void> deleteUser(@PathVariable String email) {
+        userService.delete(email);
 
         return ResponseEntity.ok()
                 .build();
