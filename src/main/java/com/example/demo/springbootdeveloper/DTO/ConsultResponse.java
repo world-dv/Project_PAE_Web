@@ -8,6 +8,7 @@ import java.sql.Date;
 @Getter
 public class ConsultResponse {
 
+    private final Long id;
     private final String title;
     private final String category;
     private final String content;
@@ -16,6 +17,7 @@ public class ConsultResponse {
     private final String img;
 
     public ConsultResponse(Consult consult) {
+        this.id = consult.getId();
         this.title = consult.getTitle();
         this.category = consult.getCategory();
         this.content = consult.getContent();

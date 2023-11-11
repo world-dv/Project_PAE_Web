@@ -8,6 +8,7 @@ import java.sql.Date;
 @Getter
 public class InfoResponseOne {
 
+    private final Long id;
     private final String title;
     private final String content;
     private final String category;
@@ -16,6 +17,7 @@ public class InfoResponseOne {
     private final String img;
 
     public InfoResponseOne(Info info) {
+        this.id = info.getId();
         this.title = info.getTitle();
         this.content = info.getContent();
         this.category = info.getCategory();

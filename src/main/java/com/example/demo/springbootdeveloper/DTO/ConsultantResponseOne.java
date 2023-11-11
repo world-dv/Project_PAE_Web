@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 public class ConsultantResponseOne {
 
+    private final Long id;
     private final String name;
     private final Integer cost;
     private final boolean gender;
@@ -14,6 +15,7 @@ public class ConsultantResponseOne {
     private final String field;
 
     public ConsultantResponseOne(Consultant consultant) {
+        this.id = consultant.getId();
         this.name = consultant.getName();
         this.cost = consultant.getCost();
         this.gender = consultant.isGender();
