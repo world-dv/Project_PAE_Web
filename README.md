@@ -13,14 +13,18 @@ Front 2명, Back-end 2명으로, 총 4명으로 이루어져 있습니다.
 
 ### 📑 ERD 설계도
 
-![image](https://github.com/user-attachments/assets/788400d5-cc8b-45a4-a0c0-04abb93de92f)
+![ERD(1)](https://github.com/user-attachments/assets/6c39488f-a5fe-42b2-bcff-470c6cb2bfff)
+
+![ERD(2)](https://github.com/user-attachments/assets/20810f5d-bd5e-46ec-89c2-9620014f7a14)
+
 
 📢 대략적인 설계도 입니다. 실제 구현은 JPA로 진행했습니다.
 
 
 ## 📃 기술 설계도
 
-![image](https://github.com/user-attachments/assets/03bd9c6b-bf81-4dca-ad7c-47236ee607cc)
+![기술 설계도](https://github.com/user-attachments/assets/942d73e2-de1d-4f9c-92a9-c03b6e8d56c4)
+
 
 ## 🚀 기술 스택
 
@@ -32,35 +36,43 @@ Front 2명, Back-end 2명으로, 총 4명으로 이루어져 있습니다.
 
 - 로그인/회원가입
 
-![스크린샷 2024-07-20 194501](https://github.com/user-attachments/assets/5c1527bb-c6e2-4158-beb6-993d1d7045a3)
+![로그인_회원가입](https://github.com/user-attachments/assets/fc2accf2-2bf6-4125-9029-cccbaf56b18d)
+
 
 - 메뉴/메인 화면
 
-![스크린샷 2024-07-20 194535](https://github.com/user-attachments/assets/22d4f99a-8855-454f-952e-9187a2b93a7b)
+![메뉴_메인 화면](https://github.com/user-attachments/assets/4b236adb-f669-4c0c-94c1-55b5637251bc)
+
 
 - 게시글 작성/확인
 
-![스크린샷 2024-07-20 194601](https://github.com/user-attachments/assets/1c91eddd-8cbc-4273-a737-674facaaac4c)
+![게시글 작성_확인](https://github.com/user-attachments/assets/964cd881-87f9-4e75-9455-a1881d76943c)
+
 
 - 육아 정보
 
-![스크린샷 2024-07-20 195044](https://github.com/user-attachments/assets/ab435786-e65c-43a0-90d1-32475254ac67)
+![육아 정보](https://github.com/user-attachments/assets/c5ccb296-89cf-494a-a2f9-c19e79b12ded)
+
 
 - 나눔
 
-![스크린샷 2024-07-20 195116](https://github.com/user-attachments/assets/dad4868c-7422-4e91-8d70-42f87e3b3409)
+![나눔](https://github.com/user-attachments/assets/4490e5e3-0c69-400a-ba5d-84a069e3dcac)
+
 
 - 상담
 
-![스크린샷 2024-07-20 195150](https://github.com/user-attachments/assets/221ba6d6-7c71-40c1-bebd-06047ebba5b1)
+![상담](https://github.com/user-attachments/assets/76059f43-239b-4147-a97b-f3dfd25e2360)
+
 
 - 도우미 찾기
+  
+![도우미 찾기](https://github.com/user-attachments/assets/14f6d189-3e6d-438f-9e9e-43ff4682e5a2)
 
-![스크린샷 2024-07-20 195327](https://github.com/user-attachments/assets/e46d5151-2624-4394-9b52-6e11f38cb5cc)
 
 - 육아 커뮤니티
 
-![스크린샷 2024-07-20 195415](https://github.com/user-attachments/assets/bca06640-4666-4c61-8424-0b753c4f0b1f)
+![육아 커뮤니티](https://github.com/user-attachments/assets/f5b06126-fde5-4dc5-9845-fce9b0915125)
+
 
 
 ## 🔗 주요 기능
